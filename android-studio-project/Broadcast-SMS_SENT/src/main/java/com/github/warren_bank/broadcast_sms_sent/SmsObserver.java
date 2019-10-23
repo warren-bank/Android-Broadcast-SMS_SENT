@@ -13,9 +13,29 @@ class SmsObserver extends ContentObserver {
     private Context context;
     private int lastSmsId;
 
+    // =============================
+    // Observer lifecycle management
+    // =============================
+
     public SmsObserver(Handler handler) {
         super(handler);
     }
+
+    @Override
+    public void onChange(boolean selfChange, Uri uri) {
+        super.onChange(selfChange, uri);
+        onChange();
+    }
+
+    @Override
+    public void onChange(boolean selfChange) {
+        super.onChange(selfChange);
+        onChange();
+    }
+
+    // =============================
+    // workers
+    // =============================
 
     public void onStart(ContentResolver r, Context c) {
         resolver  = r;
@@ -75,20 +95,12 @@ class SmsObserver extends ContentObserver {
                 }
                 catch(Exception e) {}
             }
-            return id;
         }
+
+        return id;
     }
 
-    @Override
-    public void onChange(boolean selfChange, Uri uri) {
-        super.onChange(selfChange, uri);
-        onChange(selfChange);
-    }
-
-    @Override
-    public void onChange(boolean selfChange) {
-        super.onChange(selfChange);
-
+    public void onChange() {
         // =================
         // schema reference:
         //     https://web.archive.org/web/20120423191752/http://www.androidjavadoc.com/m5-rc15/constant-values.html#android.provider.Telephony.TextBasedSmsColumns.MESSAGE_TYPE_SENT
