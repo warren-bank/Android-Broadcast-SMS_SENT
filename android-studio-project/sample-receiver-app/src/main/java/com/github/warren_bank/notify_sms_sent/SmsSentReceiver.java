@@ -17,10 +17,14 @@ public class SmsSentReceiver extends BroadcastReceiver {
             String phone   = extras.getString("phone",   "[undefined]");
             String message = extras.getString("message", "[undefined]");
 
+            String title   = "SMS_SENT";
+            String subject = "to: " + phone;
+
             Notification notification = new Notification.Builder(context)
                 .setSmallIcon(android.R.drawable.sym_call_outgoing)
-                .setContentTitle("SMS_SENT")
-                .setContentText("to: " + phone + "\n\n" + message)
+                .setContentTitle(title)
+                .setContentText(subject)
+                .setStyle(new Notification.BigTextStyle().bigText(subject + "\n\n" + message))
                 .setAutoCancel(true)
                 .build();
 

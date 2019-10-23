@@ -1,21 +1,17 @@
-#### [Broadcast SMS_SENT](https://github.com/warren-bank/Android-Broadcast-SMS_SENT)
+#### [Notify SMS_SENT](https://github.com/warren-bank/Android-Broadcast-SMS_SENT/tree/sample-receiver-app)
 
-Android long-running Service that observes outbound SMS messages and broadcasts them for other apps to consume.
+Android app that receives 'SMS_SENT' broadcasts and displays notifications.
 
-#### Specs:
+#### Overview:
 
-* attributes of the broadcast Intent:
-  * action = `android.provider.Telephony.SMS_SENT`
-  * extras:
-    * `phone`
-    * `message`
+* this is a sample application that can be used to:
+  * test that [Broadcast SMS_SENT](https://github.com/warren-bank/Android-Broadcast-SMS_SENT) works on a device
+  * serve as a template
 
 #### Notes:
 
 * minimum supported version of Android:
-  * Android 1.0 (API 1)
-* maximum supported version of Android:
-  * Android 7.0 (API 24)
+  * Android 4.1 (API 16)
 
 #### Legal:
 

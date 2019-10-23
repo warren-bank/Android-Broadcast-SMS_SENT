@@ -1,7 +1,7 @@
 project.ext {
-    releaseVersionCode = Integer.parseInt("000010001", 10)
-    releaseVersion     = '000.01.00-01API'
-    minSdkVersion      = 1
+    releaseVersionCode = Integer.parseInt("000010116", 10)
+    releaseVersion     = '000.01.01-16API'
+    minSdkVersion      = 16
     targetSdkVersion   = 28
     compileSdkVersion  = 28
     buildToolsVersion  = '28.0.3'
