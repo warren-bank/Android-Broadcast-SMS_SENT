@@ -3,7 +3,6 @@ package com.github.warren_bank.broadcast_sms_sent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 
 public class RestartReceiver extends BroadcastReceiver {
     @Override

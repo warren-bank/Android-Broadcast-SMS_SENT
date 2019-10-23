@@ -138,6 +138,7 @@ class SmsObserver extends ContentObserver {
 
                 // broadcast Intent
                 Intent intent = new Intent();
+                intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
                 intent.setAction("android.provider.Telephony.SMS_SENT");
                 intent.putExtra("phone",   address);
                 intent.putExtra("message", message);
