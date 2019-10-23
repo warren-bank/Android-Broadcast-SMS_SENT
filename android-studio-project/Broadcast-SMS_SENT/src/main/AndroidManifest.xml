@@ -3,10 +3,27 @@
     package="com.github.warren_bank.broadcast_sms_sent">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
         android:allowBackup="false"
-        android:label="Broadcast SMS_SENT">
+        android:label="Broadcast SMS_SENT"
+        android:icon="@android:drawable/stat_notify_chat">
+
+        <!--
+          * `Activity` is needed to bootstrap Service,
+            since the app needs a way to transition from "stopped" to "started" state.
+          * `RestartReceiver` only receives broadcasts in "started" state.
+        -->
+        <activity
+            android:name=".StartActivity"
+            android:label="Broadcast SMS_SENT"
+            android:launchMode="standard">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <service
             android:name=".SmsService"
